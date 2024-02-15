@@ -1,17 +1,8 @@
 # Dotfiles
 Tracking of config files in .configs/ inspired by https://www.atlassian.com/git/tutorials/dotfiles
 
-## Setup
-To use these configs, just clone the repo to `~/dotfiles`
+## Linux environment setup
+To setup a linux environment with the stored zsh and tmux configuration, run the follwing:
+```bash
+bash <(curl -sSL https://gist.githubusercontent.com/AntonClaesson/8a08ae6a11224c5b1d2acb2f92a508c8/raw/)
 ```
-cd ~
-git clone git@github.com:AntonClaesson/dotfiles.git
-```
-
-## Tmux
-To configure tmux correctly you might need to run (outside of session)
-```
-tmux source ~/.config/tmux/tmux.conf
-```
-then inside a session you can install and refresh if needed using
-`ctrl+space+I` or `ctrl+b+I` if first does not work.
