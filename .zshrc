@@ -107,6 +107,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias ntmux="tmux new -d && tmux source ~/.config/tmux/tmux.conf && tmux a"
+
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
