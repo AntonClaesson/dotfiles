@@ -1,0 +1,7 @@
+[user]
+	email = anton.claesson@smarteye.se
+	name = Anton Claesson
+[merge]
+	tool = meld
+[core]
+	editor = vim
