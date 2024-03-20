@@ -81,6 +81,10 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# must unalias all ZSH defaults here AFTER we source the above
+# Remove python alias to /usr/bin/python3
+unalias python
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -108,9 +112,26 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias ntmux="tmux new -d && tmux source ~/.config/tmux/tmux.conf && tmux a"
+alias cdtc="cd ~/git/trackercore"
+alias cddl="cd ~/git/DeepLearning"
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias python=/usr/bin/python3
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/anton/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/anton/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/anton/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/anton/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
