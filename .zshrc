@@ -81,10 +81,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# must unalias all ZSH defaults here AFTER we source the above
-# Remove python alias to /usr/bin/python3
-unalias python
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -101,6 +97,13 @@ unalias python
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+
+
+# Unalias ZSH defaults here
+# remove python alias to /usr/bin/python3
+if whence -w python | grep "alias"; then
+    unalias python
+fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -120,6 +123,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/anton/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -135,3 +139,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Start tmux automatically
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+    exec tmux new-session -A -s main
+fi

@@ -7,3 +7,5 @@
 	editor = vim
 [maintenance]
 	repo = /home/anton/dotfiles
+[push]
+	autoSetupRemote = true
