@@ -115,7 +115,8 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias ntmux="tmux new -d && tmux source ~/.config/tmux/tmux.conf && tmux a"
-
+alias ktmux="tmux kill-session -t" 
+alias auto="cd ~/git/automotive && code . && exit"
 #source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -137,8 +138,12 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Add repo roots to python path
+export PYTHONPATH="${PYTHONPATH}:/home/anton/git/automotive"
+
 # Start tmux automatically
-tmux source ~/.config/tmux/tmux.conf
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-    exec tmux new-session -A -s main
-fi
+tmux new -s session -d && tmux source ~/.config/tmux/tmux.conf && tmux kill-session -t session
+#if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#    exec tmux new-session -A -s main
+#fi
+

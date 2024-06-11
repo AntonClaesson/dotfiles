@@ -1,15 +1,15 @@
 {
-    "workbench.colorTheme": "Abyss",
     "python.defaultInterpreterPath": "/home/anton/miniconda3/envs/automotive",
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true
+            "source.organizeImports": "explicit"
         },
     },
     "isort.args": [
         "--profile",
         "black"
     ],
+    "application.shellEnvironmentResolutionTimeout": 30,
 }
