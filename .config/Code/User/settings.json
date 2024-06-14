@@ -1,15 +1,21 @@
 {
     "python.defaultInterpreterPath": "/home/anton/miniconda3/envs/automotive",
+    "editor.rulers": [
+        100
+    ],
+    "editor.formatOnSave": true,
+    "editor.smoothScrolling": true,
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
-        "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": "explicit"
+            "source.organizeImports": "explicit",
         },
     },
+    "black-formatter.args": [
+        // "--unstable",
+    ],
     "isort.args": [
         "--profile",
         "black"
     ],
-    "application.shellEnvironmentResolutionTimeout": 30,
 }
