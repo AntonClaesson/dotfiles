@@ -1,4 +1,8 @@
 {
+    "vim.handleKeys": {
+        "<C-w>": false,
+        "<C-p>": false,
+    },
     "python.defaultInterpreterPath": "/home/anton/miniconda3/envs/automotive",
     "editor.rulers": [
         100
