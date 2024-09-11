@@ -130,7 +130,7 @@ function devrun() {
     local repo_path_host="$1"
     local user_id=$(id -u)
     local group_id=$(id -g)
-
+    
     docker run -itd --rm --gpus all --pid=host --name dev_container \
         -v "$repo_path_host:$repo_path_host" \
         -e DISPLAY=$DISPLAY \
@@ -139,6 +139,7 @@ function devrun() {
         -v "$HOME/.ssh:$HOME/.ssh" \
         -e USER_ID=$user_id -e GROUP_ID=$group_id \
         --user $user_id:$group_id \
+        --network host \
         dev
 }
 alias devatt="docker attach dev_container"
