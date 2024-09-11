@@ -1,0 +1,32 @@
+{
+    "vim.handleKeys": {
+        "<C-w>": false,
+        "<C-p>": false,
+        "<C-f>": false,
+        "<C-a>": false
+    },
+    "python.defaultInterpreterPath": "/home/anton/miniconda3/envs/automotive",
+    "editor.rulers": [
+        100
+    ],
+    "editor.formatOnSave": true,
+    "editor.smoothScrolling": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "black-formatter.args": [],
+    "isort.args": [
+        "--profile",
+        "black"
+    ],
+    "jupyter.askForKernelRestart": false,
+    "workbench.colorTheme": "Default Dark Modern",
+    "cursor.cpp.disabledLanguages": [],
+    "git.autofetch": true,
+    "workbench.editorAssociations": {
+        "{git,gitlens}:/**/*.{md,csv,svg}": "default"
+    }
+}
