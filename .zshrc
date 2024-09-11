@@ -133,6 +133,10 @@ function devrun() {
 
     docker run -itd --rm --gpus all --pid=host --name dev_container \
         -v "$repo_path_host:$repo_path_host" \
+        -e DISPLAY=$DISPLAY \
+        -v "$HOME/.Xauthority:$HOME/.Xauthority" \
+        -v /tmp/.X11-unix:/tmp/.X11-unix \
+        -v "$HOME/.ssh:$HOME/.ssh" \
         -e USER_ID=$user_id -e GROUP_ID=$group_id \
         --user $user_id:$group_id \
         dev
