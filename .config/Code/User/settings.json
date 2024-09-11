@@ -2,6 +2,8 @@
     "vim.handleKeys": {
         "<C-w>": false,
         "<C-p>": false,
+        "<C-f>": false,
+        "<C-a>": false,
     },
     "python.defaultInterpreterPath": "/home/anton/miniconda3/envs/automotive",
     "editor.rulers": [
@@ -22,4 +24,5 @@
         "--profile",
         "black"
     ],
+    "jupyter.askForKernelRestart": false,
 }

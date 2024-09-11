@@ -119,6 +119,27 @@ alias ktmux="tmux kill-session -t"
 alias auto="cd ~/git/automotive && code . && exit"
 #source ~/powerlevel10k/powerlevel10k.zsh-theme
 
+# docker aliases and funcs
+function devbuild() {
+    local user_id=$(id -u)
+    local group_id=$(id -g)
+    local user_name=$(whoami)
+    docker build --build-arg USER_NAME=$user_name --build-arg USER_ID=$user_id --build-arg GROUP_ID=$group_id -t dev -f ~/git/misc/docker/Dockerfile.dev ~/git/misc/docker/
+}
+function devrun() {
+    local repo_path_host="$1"
+    local user_id=$(id -u)
+    local group_id=$(id -g)
+
+    docker run -itd --rm --gpus all --pid=host --name dev_container \
+        -v "$repo_path_host:$repo_path_host" \
+        -e USER_ID=$user_id -e GROUP_ID=$group_id \
+        --user $user_id:$group_id \
+        dev
+}
+alias devatt="docker attach dev_container"
+
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
