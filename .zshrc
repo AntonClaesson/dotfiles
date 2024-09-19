@@ -132,7 +132,9 @@ function devrun() {
     local group_id=$(id -g)
     
     docker run -itd --rm --gpus all --pid=host --name dev_container \
-        -v "$repo_path_host:$repo_path_host" \
+        -v "/data:/data" \
+	-v "$repo_path_host:$repo_path_host" \
+	-v "$repo_path_host/venv" \ 
         -e DISPLAY=$DISPLAY \
         -v "$HOME/.Xauthority:$HOME/.Xauthority" \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
