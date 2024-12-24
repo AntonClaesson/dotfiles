@@ -72,5 +72,9 @@
     {
         "key": "ctrl+shift+y",
         "command": "-aichat.insertselectionintofollowup"
+    },
+    {
+        "key": "ctrl+shift+n ctrl+shift+l",
+        "command": "aichat.newchatbuttonaction"
     }
 ]

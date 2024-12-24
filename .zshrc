@@ -168,10 +168,16 @@ unset __conda_setup
 
 # Add repo roots to python path
 export PYTHONPATH="${PYTHONPATH}:/home/anton/git/automotive"
+export PYTHONPATH="${PYTHONPATH}:/home/anton/git/qf"
+
+# Add executables in ~/.local/bin to PATH
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:/usr/local/bin"
 
 # Start tmux automatically
 tmux new -s session -d && tmux source ~/.config/tmux/tmux.conf && tmux kill-session -t session
 #if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #    exec tmux new-session -A -s main
 #fi
+
 

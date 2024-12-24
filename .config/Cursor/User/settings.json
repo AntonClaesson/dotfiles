@@ -28,5 +28,8 @@
     "git.autofetch": true,
     "workbench.editorAssociations": {
         "{git,gitlens}:/**/*.{md,csv,svg}": "default"
-    }
+    },
+    "explorer.confirmDelete": false,
+    "githubPullRequests.pullBranch": "never",
+    "window.zoomLevel": 0
 }
