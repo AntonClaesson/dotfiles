@@ -101,9 +101,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Unalias ZSH defaults here
 # remove python alias to /usr/bin/python3
-if whence -w python | grep "alias"; then
-    unalias python
-fi
+#if whence -w python | grep "alias"; then
+#    unalias python
+#fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -151,24 +151,25 @@ alias devatt="docker attach dev_container"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/anton/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/anton/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/anton/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/anton/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+## >>> conda initialize >>>
+## !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/home/anton/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/home/anton/miniconda3/etc/profile.d/conda.sh" ]; then
+#        . "/home/anton/miniconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/home/anton/miniconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+## <<< conda initialize <<<
 
 # Add repo roots to python path
+# Note: Can be done using pip -e installation of repo venv instead
 export PYTHONPATH="${PYTHONPATH}:/home/anton/git/automotive"
-export PYTHONPATH="${PYTHONPATH}:/home/anton/git/qf"
+#export PYTHONPATH="${PYTHONPATH}:/home/anton/git/qf"
 
 # Add executables in ~/.local/bin to PATH
 export PATH="$PATH:$HOME/.local/bin"
@@ -181,3 +182,4 @@ tmux new -s session -d && tmux source ~/.config/tmux/tmux.conf && tmux kill-sess
 #fi
 
 
+eval "$(uv generate-shell-completion zsh)"
